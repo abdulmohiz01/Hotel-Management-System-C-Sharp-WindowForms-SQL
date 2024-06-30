@@ -52,6 +52,7 @@
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -69,24 +70,123 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GuestRegister.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GuestRegister.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rooms.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rooms.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="StaffDashboard.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StaffDashboard.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="USERCONTROLS\AddRoom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="USERCONTROLS\AddRoom.Designer.cs">
+      <DependentUpon>AddRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="USERCONTROLS\Booking.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="USERCONTROLS\Booking.Designer.cs">
+      <DependentUpon>Booking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="USERCONTROLS\guests.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="USERCONTROLS\guests.Designer.cs">
+      <DependentUpon>guests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="USERCONTROLS\orderfood.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="USERCONTROLS\orderfood.Designer.cs">
+      <DependentUpon>orderfood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="USERCONTROLS\payments.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="USERCONTROLS\payments.Designer.cs">
+      <DependentUpon>payments.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="USERCONTROLS\AddRoom.resx">
+      <DependentUpon>AddRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USERCONTROLS\Booking.resx">
+      <DependentUpon>Booking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USERCONTROLS\guests.resx">
+      <DependentUpon>guests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USERCONTROLS\orderfood.resx">
+      <DependentUpon>orderfood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USERCONTROLS\payments.resx">
+      <DependentUpon>payments.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="GuestRegister.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>GuestRegister.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GuestRegister.dbml.layout">
+      <DependentUpon>GuestRegister.dbml</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Rooms.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Rooms.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Rooms.dbml.layout">
+      <DependentUpon>Rooms.dbml</DependentUpon>
+    </None>
+    <None Include="StaffDashboard.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>StaffDashboard.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StaffDashboard.dbml.layout">
+      <DependentUpon>StaffDashboard.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -112,5 +212,12 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>if exist "$(TargetPath).locked" del "$(TargetPath).locked"
+if exist "$(TargetPath)" if not exist "$(TargetPath).locked" move "$(TargetPath)" "$(TargetPath).locked"</PreBuildEvent>
+  </PropertyGroup>
 </Project>

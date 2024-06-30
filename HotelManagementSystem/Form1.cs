@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace HotelManagementSystem
 {
@@ -29,6 +22,7 @@ namespace HotelManagementSystem
 
         private void loginpage_Load(object sender, EventArgs e)
         {
+     
 
         }
 
@@ -41,23 +35,35 @@ namespace HotelManagementSystem
                 SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
                 DataTable table = new DataTable();
                 adapter.Fill(table);
-                bool check = false; 
-
+                bool check = false;
+                
                 for (int i = 0; i < 10; i++)
                 {
                     DataRow row = table.Rows[i];
                     if (idinput.Text == row["StaffId"].ToString() && passwordinput.Text == row["Password"].ToString())
-                    {
+                    { 
                         // Move to the next page
-                        MessageBox.Show("Success");
+                        this.Hide();
                         check = true; // Set check to true if a match is found
+                        dashboard d = new dashboard(int.Parse(idinput.Text));
+                        d.Show();
+
+
+                        if (creds.Visible == true)
+                        {
+                            creds.Visible = false;
+
+                        }
                         break; // Exit the loop once a match is found
                     }
                 }
 
                 if (!check) // If no match was found after checking all rows
                 {
-                    MessageBox.Show("No such record found. Please verify your entered details.");
+                   // MessageBox.Show("No such record found. Please verify your entered details.");
+                    creds.Visible = true;
+                    idinput.Text = "";
+                    passwordinput.Text = "";
                 }
 
                 conn.Close();
@@ -71,6 +77,11 @@ namespace HotelManagementSystem
                 conn.Close();
             }
 
+
+        }
+
+        private void adminLabel_Click(object sender, EventArgs e)
+        {
 
         }
     }
