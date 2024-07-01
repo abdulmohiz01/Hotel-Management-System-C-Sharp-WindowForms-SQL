@@ -67,6 +67,7 @@
             this.guestlist.RowTemplate.Height = 24;
             this.guestlist.Size = new System.Drawing.Size(874, 662);
             this.guestlist.TabIndex = 1;
+            this.guestlist.SelectionChanged += new System.EventHandler(this.guestlist_SelectionChanged);
             // 
             // addguest
             // 

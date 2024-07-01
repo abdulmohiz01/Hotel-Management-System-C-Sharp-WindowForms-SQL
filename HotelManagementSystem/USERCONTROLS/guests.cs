@@ -61,7 +61,9 @@ namespace HotelManagementSystem.USERCONTROLS
                 LoadGuestsData();
                 MessageBox.Show($"Guest with ID {newGuest.GuestId} added successfully!");
             }
+            clearInputs();
         }
+        
 
 
         private void updateguest_Click(object sender, EventArgs e)
@@ -108,6 +110,33 @@ namespace HotelManagementSystem.USERCONTROLS
                 {
                     MessageBox.Show("Guest not found.");
                 }
+            }
+        }
+
+        private void clearInputs()
+        {
+            guestid.Text= string.Empty;
+            guestfirstname.Text= string.Empty;
+            guestlastname.Text= string.Empty;
+            guestaddress.Text= string.Empty;
+            guestphone.Text= string.Empty;
+            guestemail.Text= string.Empty;
+
+        }
+
+        
+
+        private void guestlist_SelectionChanged(object sender, EventArgs e)
+        {
+            if (guestlist.SelectedRows.Count > 0)
+            {
+                var selectedRow = guestlist.SelectedRows[0];
+                guestid.Text = selectedRow.Cells["GuestId"].Value.ToString();
+                guestfirstname.Text = selectedRow.Cells["FirstName"].Value.ToString();
+                guestlastname.Text = selectedRow.Cells["LastName"].Value.ToString();
+                guestaddress.Text = selectedRow.Cells["Address"].Value.ToString();
+                guestphone.Text = selectedRow.Cells["Phone"].Value.ToString();
+                guestemail.Text = selectedRow.Cells["Email"].Value.ToString();
             }
         }
     }

@@ -9,22 +9,36 @@ namespace HotelManagementSystem
     {
         private int staffId;
         private RoomsDataContext roomsDataContext;
+       
         private GuestRegisterDataContext gr;
+       
+        private PaymentsDataContext payments;
 
         public dashboard(int sId)
         {
             InitializeComponent();
             this.staffId = sId;
 
-            // Initialize the RoomsDataContext here
+            // Initialize the AllDataContext here
             roomsDataContext = new RoomsDataContext();
             gr = new GuestRegisterDataContext();
-
-
-            // Pass the RoomsDataContext to the AddRoom user control
+          /*  bkk = new BookingClassDataContext();*/
+            payments = new PaymentsDataContext();
+            // Passing RoomsDataContext to the AddRoom user control
+            //For Add Room User Control
             addRoom2.RoomsDataContext = roomsDataContext;
+            //For Add Guest User Control
             guests1.GuestRegisterDataContext = gr;
-            
+            //For Booking User Control
+          /*  booking1.BookingClassDataContext = bkk;*/
+            booking1.RoomsDataContext = roomsDataContext;
+            booking1.GuestRegisterData = gr;
+            booking1.PaymentsDataContext = payments;
+
+            // For Payment User Control
+            payments1.Payment = payments;
+
+
         }
 
         private void dashboard_Load(object sender, System.EventArgs e)
@@ -42,6 +56,7 @@ namespace HotelManagementSystem
                         staffidlabel.Text = $"ID: {staff.StaffId}";
                         namelabel.Text = $"Name: {staff.FirstName} {staff.LastName}";
                         staffpositionlabel.Text = $"Position: {staff.Position}";
+                        staffsalarylabel.Text = $"Salary: {staff.Salary}"; 
                         staffphonelabel.Text = $"Phone: {staff.Phone}";
                         staffemaillabel.Text = $"Email: {staff.Email}";
                     }

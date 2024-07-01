@@ -216,6 +216,7 @@
             // 
             // guests1
             // 
+            this.guests1.GuestRegisterDataContext = null;
             this.guests1.Location = new System.Drawing.Point(3, 0);
             this.guests1.Name = "guests1";
             this.guests1.Size = new System.Drawing.Size(1600, 855);
@@ -224,8 +225,12 @@
             // 
             // booking1
             // 
+            this.booking1.BookingsDataContext = null;
+            this.booking1.GuestRegisterData = null;
             this.booking1.Location = new System.Drawing.Point(3, 3);
             this.booking1.Name = "booking1";
+            this.booking1.PaymentsDataContext = null;
+            this.booking1.RoomsDataContext = null;
             this.booking1.Size = new System.Drawing.Size(1597, 852);
             this.booking1.TabIndex = 1;
             this.booking1.Visible = false;
@@ -234,6 +239,7 @@
             // 
             this.addRoom2.Location = new System.Drawing.Point(0, 0);
             this.addRoom2.Name = "addRoom2";
+            this.addRoom2.RoomsDataContext = null;
             this.addRoom2.Size = new System.Drawing.Size(1603, 855);
             this.addRoom2.TabIndex = 0;
             this.addRoom2.Visible = false;
@@ -254,6 +260,7 @@
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.Black;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "dashboard";
