@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,9 @@ using System.Windows.Forms;
 
 namespace HotelManagementSystem.USERCONTROLS
 {
-    public partial class Booking : UserControl
+    public partial class BookingUserControl : UserControl
     {
-        private BookingClassDataContext bk;
+        private BookingDataContext books;
         private RoomsDataContext roms;
         private GuestRegisterDataContext gr;
         private PaymentsDataContext payments;
@@ -44,20 +45,20 @@ namespace HotelManagementSystem.USERCONTROLS
             }
         }
 
-        public BookingClassDataContext BookingClassDataContext {
-            get { return bk; }
+        public BookingDataContext BookingDataContext {
+            get { return books; }
             set
             {
-                bk = value;
+                books = value;
                 LoadBookingData();
             }
         }
-        public Booking()
+        public BookingUserControl()
         {
             InitializeComponent();
         }
 
-        private void LoadGuestsData()
+        public  void LoadGuestsData()
         {
             if (gr != null)
             {
@@ -65,19 +66,29 @@ namespace HotelManagementSystem.USERCONTROLS
             }
 
         }
-        private void LoadRoomsData()
+        public void LoadRoomsData()
         {
             if (roms != null)
             {
                 roomlist.DataSource = roms.Rooms.Where(r => r.Status == "Available").ToList();
             }
         }
-        private void LoadBookingData()
+        public void LoadBookingData()
         {
-            if (payments != null)
+            if (books != null)
             {
-                bookinglist.DataSource = bk.Bookings.ToList();
+                bookinglist.DataSource = books.Bookings.ToList();
                 
+            }
+        }
+        protected override void OnVisibleChanged(EventArgs e)
+        {
+            base.OnVisibleChanged(e);
+            if (this.Visible)
+            {
+                LoadBookingData();
+                LoadRoomsData();
+                LoadGuestsData();
             }
         }
         private void Booking_Load(object sender, EventArgs e)
@@ -89,14 +100,17 @@ namespace HotelManagementSystem.USERCONTROLS
 
         private void book_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(guestid.Text))
+            int price = int.Parse(daystext.Text) * 9000;
+            pricetext.Text = price.ToString();
+
+            if (string.IsNullOrWhiteSpace(guestidtext.Text))
             {
                 MessageBox.Show("Please select a guest.");
                 return;
             }
 
             int roomId;
-            if (!int.TryParse(roomnumber.Text, out roomId))
+            if (!int.TryParse(roomnumbertext.Text, out roomId))
             {
                 MessageBox.Show("Please enter a valid room number.");
                 return;
@@ -109,39 +123,33 @@ namespace HotelManagementSystem.USERCONTROLS
                 return;
             }
 
-            int maxBookingId = bk.Bookings.Any() ? bk.Bookings.Max(b => b.BookingId) : 0;
-            MessageBox.Show(maxBookingId.ToString()); //output is 1000
+            int maxBookingId = books.Bookings.Any() ? books.Bookings.Max(b => b.BookingId) : 0;
+           // MessageBox.Show(maxBookingId.ToString()); //output is 1000
 
-          /*  var nBooking = new Booking
+            if (BookingDataContext != null)
             {
-                BookingId = maxBookingId + 1,
-                GuestId = int.Parse(guestid.Text),
-                RoomNumber = roomId,
-                CheckInDate = DateTime.Parse(checkin.Text),
-                CheckOutDate = DateTime.Parse(checkout.Text),
-                Price = decimal.Parse(price.Text)
+                var newBooking = new Booking
+                {
+                    BookingId = maxBookingId + 1,
+                    GuestId = int.Parse(guestidtext.Text),
+                    RoomNumber = int.Parse(roomnumbertext.Text),
+                    CheckinDate = DateTime.Parse(checkintext.Text),
+                    CheckoutDate = DateTime.Parse(checkouttext.Text),
+                    TotalPrice = decimal.Parse(pricetext.Text)
+                };
+                books.Bookings.InsertOnSubmit(newBooking);
+            }
 
-            };*/
-            /*var newBooking = new Booking
-            {
-                BookingIds = maxBookingId + 1,
-                GuestIds = int.Parse(guestid.Text),
-                RoomNumbers = roomId,
-                CheckInDates = DateTime.Parse(checkin.Text),   // Ensure to parse correctly
-                CheckOutDate = DateTime.Parse(checkout.Text), // Ensure to parse correctly
-                Price = decimal.Parse(price.Text)             // Ensure to parse correctly
-            };
-
-
-            bl.Bookings.InsertOnSubmit(newBooking);
-            bl.SubmitChanges();
+            books.SubmitChanges();
 
             room.Status = "Booked";
             roms.SubmitChanges();
-
+            int maxPaymentId = payments.Payments.Any() ? payments.Payments.Max(b => b.PaymentId) : 0;
             var newPayment = new Payment
             {
-                BookingId = newBooking.BookingId,
+                PaymentId = maxPaymentId +1,
+                BookingId = int.Parse(bookingidtext.Text),
+                Amount = decimal.Parse(pricetext.Text),
                 PaymentDate = DateTime.MinValue,
                 PaymentMethod = "None"
             };
@@ -152,17 +160,6 @@ namespace HotelManagementSystem.USERCONTROLS
             LoadBookingData();
             LoadRoomsData();
             MessageBox.Show("Booking completed successfully!");
-            */
-        }
-
-
-        private void deletebooking_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void update_Click(object sender, EventArgs e)
-        {
 
         }
 
@@ -170,7 +167,7 @@ namespace HotelManagementSystem.USERCONTROLS
         {
             if (e.RowIndex >= 0 && guestlist.Rows[e.RowIndex].Cells["GuestId"].Value != null)
             {
-                guestid.Text = guestlist.Rows[e.RowIndex].Cells["GuestId"].Value.ToString();
+                guestidtext.Text = guestlist.Rows[e.RowIndex].Cells["GuestId"].Value.ToString();
             }
         }
     }

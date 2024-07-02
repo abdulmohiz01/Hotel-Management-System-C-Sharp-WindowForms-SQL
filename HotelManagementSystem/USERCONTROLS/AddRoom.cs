@@ -23,7 +23,7 @@ namespace HotelManagementSystem.USERCONTROLS
             InitializeComponent();
         }
 
-        private void LoadRoomsData()
+        public void LoadRoomsData()
         {
             if (roomsDataContext != null)
             {
@@ -79,6 +79,14 @@ namespace HotelManagementSystem.USERCONTROLS
                 {
                     MessageBox.Show("Room not found.");
                 }
+            }
+        }
+        protected override void OnVisibleChanged(EventArgs e)
+        {
+            base.OnVisibleChanged(e);
+            if (this.Visible)
+            {
+                LoadRoomsData();
             }
         }
 

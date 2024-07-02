@@ -22,7 +22,7 @@ namespace HotelManagementSystem.USERCONTROLS
             InitializeComponent();
         }
 
-        private void LoadGuestsData()
+        public void LoadGuestsData()
         {
             if (gr != null)
             {

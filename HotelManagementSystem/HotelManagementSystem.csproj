@@ -64,6 +64,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Booking.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Booking.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,11 +109,11 @@
     <Compile Include="USERCONTROLS\AddRoom.Designer.cs">
       <DependentUpon>AddRoom.cs</DependentUpon>
     </Compile>
-    <Compile Include="USERCONTROLS\Booking.cs">
+    <Compile Include="USERCONTROLS\BookingUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="USERCONTROLS\Booking.Designer.cs">
-      <DependentUpon>Booking.cs</DependentUpon>
+    <Compile Include="USERCONTROLS\BookingUserControl.Designer.cs">
+      <DependentUpon>BookingUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="USERCONTROLS\guests.cs">
       <SubType>UserControl</SubType>
@@ -142,8 +147,8 @@
     <EmbeddedResource Include="USERCONTROLS\AddRoom.resx">
       <DependentUpon>AddRoom.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="USERCONTROLS\Booking.resx">
-      <DependentUpon>Booking.cs</DependentUpon>
+    <EmbeddedResource Include="USERCONTROLS\BookingUserControl.resx">
+      <DependentUpon>BookingUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="USERCONTROLS\guests.resx">
       <DependentUpon>guests.cs</DependentUpon>
@@ -154,6 +159,14 @@
     <EmbeddedResource Include="USERCONTROLS\payments.resx">
       <DependentUpon>payments.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Booking.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Booking.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Booking.dbml.layout">
+      <DependentUpon>Booking.dbml</DependentUpon>
+    </None>
     <None Include="GuestRegister.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>GuestRegister.designer.cs</LastGenOutput>
@@ -212,6 +225,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\cross2.png" />
+    <None Include="Resources\cross1.png" />
+    <None Include="Resources\cross.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

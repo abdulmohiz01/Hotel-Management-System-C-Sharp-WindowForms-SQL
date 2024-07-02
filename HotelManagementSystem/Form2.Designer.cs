@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.managestaff = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -44,7 +43,7 @@
             this.staffemaillabel = new System.Windows.Forms.Label();
             this.payments1 = new HotelManagementSystem.USERCONTROLS.payments();
             this.guests1 = new HotelManagementSystem.USERCONTROLS.guests();
-            this.booking1 = new HotelManagementSystem.USERCONTROLS.Booking();
+            this.booking1 = new HotelManagementSystem.USERCONTROLS.BookingUserControl();
             this.addRoom2 = new HotelManagementSystem.USERCONTROLS.AddRoom();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -53,32 +52,20 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.panel1.Controls.Add(this.managestaff);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
-            this.panel1.Location = new System.Drawing.Point(31, 61);
+            this.panel1.Location = new System.Drawing.Point(31, 132);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(237, 855);
             this.panel1.TabIndex = 0;
-            // 
-            // managestaff
-            // 
-            this.managestaff.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.managestaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.managestaff.Location = new System.Drawing.Point(37, 681);
-            this.managestaff.Name = "managestaff";
-            this.managestaff.Size = new System.Drawing.Size(156, 85);
-            this.managestaff.TabIndex = 6;
-            this.managestaff.Text = "Manage Staff";
-            this.managestaff.UseVisualStyleBackColor = false;
             // 
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(37, 536);
+            this.button5.Location = new System.Drawing.Point(37, 622);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(156, 85);
             this.button5.TabIndex = 4;
@@ -90,7 +77,7 @@
             // 
             this.button4.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(37, 382);
+            this.button4.Location = new System.Drawing.Point(37, 453);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(156, 85);
             this.button4.TabIndex = 3;
@@ -102,7 +89,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(37, 228);
+            this.button3.Location = new System.Drawing.Point(37, 287);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(156, 85);
             this.button3.TabIndex = 2;
@@ -114,7 +101,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(37, 81);
+            this.button2.Location = new System.Drawing.Point(37, 117);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(156, 85);
             this.button2.TabIndex = 1;
@@ -129,7 +116,7 @@
             this.panel2.Controls.Add(this.guests1);
             this.panel2.Controls.Add(this.booking1);
             this.panel2.Controls.Add(this.addRoom2);
-            this.panel2.Location = new System.Drawing.Point(309, 61);
+            this.panel2.Location = new System.Drawing.Point(309, 132);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1603, 855);
             this.panel2.TabIndex = 1;
@@ -208,8 +195,11 @@
             // 
             // payments1
             // 
+            this.payments1.Booking = null;
             this.payments1.Location = new System.Drawing.Point(2, 3);
             this.payments1.Name = "payments1";
+            this.payments1.Payment = null;
+            this.payments1.room = null;
             this.payments1.Size = new System.Drawing.Size(1598, 849);
             this.payments1.TabIndex = 3;
             this.payments1.Visible = false;
@@ -225,7 +215,7 @@
             // 
             // booking1
             // 
-            this.booking1.BookingsDataContext = null;
+            this.booking1.BookingDataContext = null;
             this.booking1.GuestRegisterData = null;
             this.booking1.Location = new System.Drawing.Point(3, 3);
             this.booking1.Name = "booking1";
@@ -249,7 +239,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(1924, 945);
+            this.ClientSize = new System.Drawing.Size(1924, 1045);
             this.Controls.Add(this.staffemaillabel);
             this.Controls.Add(this.staffphonelabel);
             this.Controls.Add(this.staffsalarylabel);
@@ -286,9 +276,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private USERCONTROLS.AddRoom addRoom1;
-        private System.Windows.Forms.Button managestaff;
         private USERCONTROLS.AddRoom addRoom2;
-        private USERCONTROLS.Booking booking1;
+        private USERCONTROLS.BookingUserControl booking1;
         private USERCONTROLS.guests guests1;
         private USERCONTROLS.payments payments1;
         private System.Windows.Forms.Label namelabel;

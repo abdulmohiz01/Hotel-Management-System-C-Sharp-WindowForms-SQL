@@ -1,6 +1,6 @@
 ﻿namespace HotelManagementSystem.USERCONTROLS
 {
-    partial class Booking
+    partial class BookingUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -34,12 +34,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.bookinglist = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
-            this.bookingid = new System.Windows.Forms.TextBox();
-            this.guestid = new System.Windows.Forms.TextBox();
-            this.roomnumber = new System.Windows.Forms.TextBox();
-            this.checkin = new System.Windows.Forms.TextBox();
-            this.checkout = new System.Windows.Forms.TextBox();
-            this.price = new System.Windows.Forms.TextBox();
+            this.bookingidtext = new System.Windows.Forms.TextBox();
+            this.guestidtext = new System.Windows.Forms.TextBox();
+            this.roomnumbertext = new System.Windows.Forms.TextBox();
+            this.checkintext = new System.Windows.Forms.TextBox();
+            this.checkouttext = new System.Windows.Forms.TextBox();
+            this.pricetext = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -48,10 +48,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.book = new System.Windows.Forms.Button();
-            this.deletebooking = new System.Windows.Forms.Button();
-            this.update = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.days = new System.Windows.Forms.TextBox();
+            this.daystext = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.guestlist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomlist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookinglist)).BeginInit();
@@ -118,47 +116,47 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Bookings:";
             // 
-            // bookingid
+            // bookingidtext
             // 
-            this.bookingid.Location = new System.Drawing.Point(192, 75);
-            this.bookingid.Name = "bookingid";
-            this.bookingid.Size = new System.Drawing.Size(100, 22);
-            this.bookingid.TabIndex = 7;
+            this.bookingidtext.Location = new System.Drawing.Point(192, 75);
+            this.bookingidtext.Name = "bookingidtext";
+            this.bookingidtext.Size = new System.Drawing.Size(100, 22);
+            this.bookingidtext.TabIndex = 7;
             // 
-            // guestid
+            // guestidtext
             // 
-            this.guestid.Location = new System.Drawing.Point(192, 118);
-            this.guestid.Name = "guestid";
-            this.guestid.Size = new System.Drawing.Size(100, 22);
-            this.guestid.TabIndex = 8;
+            this.guestidtext.Location = new System.Drawing.Point(192, 118);
+            this.guestidtext.Name = "guestidtext";
+            this.guestidtext.Size = new System.Drawing.Size(100, 22);
+            this.guestidtext.TabIndex = 8;
             // 
-            // roomnumber
+            // roomnumbertext
             // 
-            this.roomnumber.Location = new System.Drawing.Point(192, 174);
-            this.roomnumber.Name = "roomnumber";
-            this.roomnumber.Size = new System.Drawing.Size(100, 22);
-            this.roomnumber.TabIndex = 9;
+            this.roomnumbertext.Location = new System.Drawing.Point(192, 174);
+            this.roomnumbertext.Name = "roomnumbertext";
+            this.roomnumbertext.Size = new System.Drawing.Size(100, 22);
+            this.roomnumbertext.TabIndex = 9;
             // 
-            // checkin
+            // checkintext
             // 
-            this.checkin.Location = new System.Drawing.Point(192, 228);
-            this.checkin.Name = "checkin";
-            this.checkin.Size = new System.Drawing.Size(100, 22);
-            this.checkin.TabIndex = 10;
+            this.checkintext.Location = new System.Drawing.Point(192, 228);
+            this.checkintext.Name = "checkintext";
+            this.checkintext.Size = new System.Drawing.Size(100, 22);
+            this.checkintext.TabIndex = 10;
             // 
-            // checkout
+            // checkouttext
             // 
-            this.checkout.Location = new System.Drawing.Point(192, 280);
-            this.checkout.Name = "checkout";
-            this.checkout.Size = new System.Drawing.Size(100, 22);
-            this.checkout.TabIndex = 11;
+            this.checkouttext.Location = new System.Drawing.Point(192, 280);
+            this.checkouttext.Name = "checkouttext";
+            this.checkouttext.Size = new System.Drawing.Size(100, 22);
+            this.checkouttext.TabIndex = 11;
             // 
-            // price
+            // pricetext
             // 
-            this.price.Location = new System.Drawing.Point(192, 354);
-            this.price.Name = "price";
-            this.price.Size = new System.Drawing.Size(100, 22);
-            this.price.TabIndex = 12;
+            this.pricetext.Location = new System.Drawing.Point(192, 354);
+            this.pricetext.Name = "pricetext";
+            this.pricetext.Size = new System.Drawing.Size(100, 22);
+            this.pricetext.TabIndex = 12;
             // 
             // label1
             // 
@@ -232,33 +230,13 @@
             // 
             // book
             // 
-            this.book.Location = new System.Drawing.Point(428, 75);
+            this.book.Location = new System.Drawing.Point(395, 197);
             this.book.Name = "book";
             this.book.Size = new System.Drawing.Size(202, 33);
             this.book.TabIndex = 20;
             this.book.Text = "Book";
             this.book.UseVisualStyleBackColor = true;
             this.book.Click += new System.EventHandler(this.book_Click);
-            // 
-            // deletebooking
-            // 
-            this.deletebooking.Location = new System.Drawing.Point(428, 206);
-            this.deletebooking.Name = "deletebooking";
-            this.deletebooking.Size = new System.Drawing.Size(202, 31);
-            this.deletebooking.TabIndex = 21;
-            this.deletebooking.Text = "Delete Booking";
-            this.deletebooking.UseVisualStyleBackColor = true;
-            this.deletebooking.Click += new System.EventHandler(this.deletebooking_Click);
-            // 
-            // update
-            // 
-            this.update.Location = new System.Drawing.Point(428, 137);
-            this.update.Name = "update";
-            this.update.Size = new System.Drawing.Size(202, 33);
-            this.update.TabIndex = 22;
-            this.update.Text = "Update";
-            this.update.UseVisualStyleBackColor = true;
-            this.update.Click += new System.EventHandler(this.update_Click);
             // 
             // label11
             // 
@@ -270,21 +248,19 @@
             this.label11.TabIndex = 24;
             this.label11.Text = "Days";
             // 
-            // days
+            // daystext
             // 
-            this.days.Location = new System.Drawing.Point(192, 317);
-            this.days.Name = "days";
-            this.days.Size = new System.Drawing.Size(100, 22);
-            this.days.TabIndex = 23;
+            this.daystext.Location = new System.Drawing.Point(192, 317);
+            this.daystext.Name = "daystext";
+            this.daystext.Size = new System.Drawing.Size(100, 22);
+            this.daystext.TabIndex = 23;
             // 
-            // Booking
+            // BookingUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.days);
-            this.Controls.Add(this.update);
-            this.Controls.Add(this.deletebooking);
+            this.Controls.Add(this.daystext);
             this.Controls.Add(this.book);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -293,19 +269,19 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.price);
-            this.Controls.Add(this.checkout);
-            this.Controls.Add(this.checkin);
-            this.Controls.Add(this.roomnumber);
-            this.Controls.Add(this.guestid);
-            this.Controls.Add(this.bookingid);
+            this.Controls.Add(this.pricetext);
+            this.Controls.Add(this.checkouttext);
+            this.Controls.Add(this.checkintext);
+            this.Controls.Add(this.roomnumbertext);
+            this.Controls.Add(this.guestidtext);
+            this.Controls.Add(this.bookingidtext);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.bookinglist);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.roomlist);
             this.Controls.Add(this.guestlist);
-            this.Name = "Booking";
+            this.Name = "BookingUserControl";
             this.Size = new System.Drawing.Size(1595, 861);
             this.Load += new System.EventHandler(this.Booking_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guestlist)).EndInit();
@@ -323,12 +299,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView bookinglist;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox bookingid;
-        private System.Windows.Forms.TextBox guestid;
-        private System.Windows.Forms.TextBox roomnumber;
-        private System.Windows.Forms.TextBox checkin;
-        private System.Windows.Forms.TextBox checkout;
-        private System.Windows.Forms.TextBox price;
+        private System.Windows.Forms.TextBox bookingidtext;
+        private System.Windows.Forms.TextBox guestidtext;
+        private System.Windows.Forms.TextBox roomnumbertext;
+        private System.Windows.Forms.TextBox checkintext;
+        private System.Windows.Forms.TextBox checkouttext;
+        private System.Windows.Forms.TextBox pricetext;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -337,9 +313,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button book;
-        private System.Windows.Forms.Button deletebooking;
-        private System.Windows.Forms.Button update;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox days;
+        private System.Windows.Forms.TextBox daystext;
     }
 }

@@ -9,6 +9,7 @@ namespace HotelManagementSystem
     {
         private int staffId;
         private RoomsDataContext roomsDataContext;
+        private BookingDataContext bookingDataContext;
        
         private GuestRegisterDataContext gr;
        
@@ -21,29 +22,37 @@ namespace HotelManagementSystem
 
             // Initialize the AllDataContext here
             roomsDataContext = new RoomsDataContext();
-            gr = new GuestRegisterDataContext();
-          /*  bkk = new BookingClassDataContext();*/
+            gr = new GuestRegisterDataContext(); 
+            bookingDataContext = new BookingDataContext();
             payments = new PaymentsDataContext();
+
+
             // Passing RoomsDataContext to the AddRoom user control
+
             //For Add Room User Control
             addRoom2.RoomsDataContext = roomsDataContext;
+
             //For Add Guest User Control
             guests1.GuestRegisterDataContext = gr;
+
             //For Booking User Control
           /*  booking1.BookingClassDataContext = bkk;*/
+            booking1.BookingDataContext = bookingDataContext;
             booking1.RoomsDataContext = roomsDataContext;
             booking1.GuestRegisterData = gr;
             booking1.PaymentsDataContext = payments;
 
             // For Payment User Control
             payments1.Payment = payments;
+            payments1.Booking = bookingDataContext;
+            payments1.room = roomsDataContext;
 
 
         }
 
         private void dashboard_Load(object sender, System.EventArgs e)
         {
-            managestaff.Visible = true;
+            
 
             using (StaffDashboardDataContext data = new StaffDashboardDataContext())
             {
@@ -81,13 +90,18 @@ namespace HotelManagementSystem
 
         private void button1_Click(object sender, System.EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
-            Application.Exit();
+            this.Hide();  // Hide the current form
+
+            // Show Form1
+            loginpage form = new loginpage();
+            form.Show();
         }
 
         private void button2_Click(object sender, System.EventArgs e)
         {
             addRoom2.Visible = true;
+            addRoom2.LoadRoomsData();
+            addRoom2.Refresh();
             addRoom2.BringToFront();
         }
 
@@ -98,18 +112,26 @@ namespace HotelManagementSystem
         private void button3_Click(object sender, System.EventArgs e)
         {
             booking1.Visible = true;
+            booking1.Refresh();
+            booking1.LoadBookingData();
+            booking1.LoadGuestsData();
+            booking1.LoadRoomsData();
             booking1.BringToFront();
         }
 
         private void button4_Click(object sender, System.EventArgs e)
         {
             guests1.Visible = true;
+            guests1.LoadGuestsData();
+            guests1.Refresh();
             guests1.BringToFront();
         }
 
         private void button5_Click(object sender, System.EventArgs e)
         {
             payments1.Visible = true;
+            payments1.loadPaymentData();
+            payments1.Refresh();
             payments1.BringToFront();
         }
     }

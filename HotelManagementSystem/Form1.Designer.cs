@@ -32,8 +32,8 @@
             this.idinput = new System.Windows.Forms.TextBox();
             this.passwordinput = new System.Windows.Forms.TextBox();
             this.loginbutton = new System.Windows.Forms.Button();
-            this.adminLabel = new System.Windows.Forms.Label();
             this.creds = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // idinput
@@ -73,19 +73,6 @@
             this.loginbutton.UseVisualStyleBackColor = false;
             this.loginbutton.Click += new System.EventHandler(this.loginbutton_Click);
             // 
-            // adminLabel
-            // 
-            this.adminLabel.AutoSize = true;
-            this.adminLabel.BackColor = System.Drawing.Color.Transparent;
-            this.adminLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.adminLabel.Font = new System.Drawing.Font("Baskerville Old Face", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adminLabel.Location = new System.Drawing.Point(931, 562);
-            this.adminLabel.Name = "adminLabel";
-            this.adminLabel.Size = new System.Drawing.Size(65, 19);
-            this.adminLabel.TabIndex = 3;
-            this.adminLabel.Text = "Admin?";
-            this.adminLabel.Click += new System.EventHandler(this.adminLabel_Click);
-            // 
             // creds
             // 
             this.creds.AutoSize = true;
@@ -98,6 +85,18 @@
             this.creds.Text = "Invalid ID or Password.";
             this.creds.Visible = false;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(1194, 21);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(56, 29);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Close";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // loginpage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -105,12 +104,12 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1262, 749);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.creds);
-            this.Controls.Add(this.adminLabel);
             this.Controls.Add(this.loginbutton);
             this.Controls.Add(this.passwordinput);
             this.Controls.Add(this.idinput);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "loginpage";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
@@ -127,8 +126,8 @@
         private System.Windows.Forms.TextBox idinput;
         private System.Windows.Forms.TextBox passwordinput;
         private System.Windows.Forms.Button loginbutton;
-        private System.Windows.Forms.Label adminLabel;
         private System.Windows.Forms.Label creds;
+        private System.Windows.Forms.Button button1;
     }
 }
 

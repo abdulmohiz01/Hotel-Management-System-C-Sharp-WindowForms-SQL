@@ -8,6 +8,7 @@ namespace HotelManagementSystem
 
     public partial class loginpage : Form
     {
+        /*This project was created by Abdul Mohiz, SP22-BCS-046*/
         string strCon;
         SqlConnection conn;
         int index = 0;
@@ -80,9 +81,10 @@ namespace HotelManagementSystem
 
         }
 
-        private void adminLabel_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            Application.Exit();
         }
     }
 }

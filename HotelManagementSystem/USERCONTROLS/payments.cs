@@ -13,6 +13,33 @@ namespace HotelManagementSystem.USERCONTROLS
     public partial class payments : UserControl
     {
         PaymentsDataContext payment;
+        BookingDataContext booking;
+        RoomsDataContext rooms;
+        public RoomsDataContext room
+        {
+            get
+            {
+                return rooms;
+            }
+            set
+            {
+                rooms = value;
+                loadPaymentData();
+            }
+        }
+        public BookingDataContext Booking
+        {
+            get
+            {
+                return booking;
+            }
+            set
+            {
+                this.booking = value;
+                
+            }
+        }
+
         public PaymentsDataContext Payment
         {
             get { return payment; }
@@ -41,12 +68,21 @@ namespace HotelManagementSystem.USERCONTROLS
             paymentmethods.Items.Add("ONLINE");
         }
 
-        private void loadPaymentData()
+        public void loadPaymentData()
         {
             if (payment != null)
             {
                 paymentlist.DataSource = payment.Payments.ToList();
             }
+            /*
+            if(rooms !=null) {
+                paymentlist.DataSource = rooms.Rooms.ToList();
+            }
+            if (booking != null)
+               {
+                   paymentlist.DataSource = booking.Bookings.ToList();
+
+               }*/
         }
 
         private void pay_Click(object sender, EventArgs e)
@@ -55,7 +91,6 @@ namespace HotelManagementSystem.USERCONTROLS
             {
                 // Get the selected row's PaymentId
                 int paymentId = (int)paymentlist.SelectedRows[0].Cells["PaymentId"].Value;
-                /*string da= paymentlist.SelectedRows[0].Cells["PaymentDate"].Value.ToString();*/
 
                 // Find the payment record in the database
                 var paymentRecord = payment.Payments.SingleOrDefault(p => p.PaymentId == paymentId);
@@ -64,16 +99,32 @@ namespace HotelManagementSystem.USERCONTROLS
                 {
                     // Update the payment method
                     paymentRecord.PaymentDate = DateTime.Now.Date;
-                    paymentRecord.PaymentMethod = paymentmethods.SelectedItem.ToString();
-                    
-
+                    paymentRecord.PaymentMethod = paymentmethods.SelectedItem.ToString(); 
                     // Save changes to the database
-                    payment.SubmitChanges();
-
+                    payment.SubmitChanges(); 
                     // Reload the payment data to reflect changes
-                    loadPaymentData();
-
-                    MessageBox.Show("Payment method updated successfully!");
+                    loadPaymentData(); 
+                   //  MessageBox.Show("Payment method updated successfully!");
+                    var bookingRecord = booking.Bookings.FirstOrDefault(b =>  b.TotalPrice == paymentRecord.Amount); //b.BookingId == paymentRecord.BookingId &&
+                   // MessageBox.Show(bookingRecord.BookingId.ToString() + bookingRecord.TotalPrice.ToString());
+                    if (bookingRecord != null)
+                    {
+                        //Fetching Room Record
+                        var roomRecord = rooms.Rooms.FirstOrDefault(b => b.RoomNumber == bookingRecord.RoomNumber);
+                        if (roomRecord != null)
+                        {
+                            roomRecord.Status = "Available";
+                            rooms.SubmitChanges();
+                        }
+                        //MessageBox.Show("Room updated");
+                        booking.Bookings.DeleteOnSubmit(bookingRecord);
+                        booking.SubmitChanges();
+                        //MessageBox.Show("Booking Deleted!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Booking Found");
+                    }
                 }
                 else
                 {
