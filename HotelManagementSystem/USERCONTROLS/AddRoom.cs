@@ -33,7 +33,7 @@ namespace HotelManagementSystem.USERCONTROLS
 
         private void AddRoom_Load(object sender, EventArgs e)
         {
-            // Load data if not already loaded
+            // Load data if not already loaded.
             LoadRoomsData();
         }
 
